@@ -1,0 +1,18 @@
+<aura:component controller="SmsPocTwilio" implements="force:lightningQuickAction,flexipage:availableForAllPageTypes, force:hasRecordId, force:hasSObjectName" access="global">
+
+	<aura:attribute name="toPhone" type="String"/>
+    <aura:attribute name="toBody" type="String"/>
+    <aura:attribute name="result" type="String"/>
+    
+
+	<lightning:card footer="Write your SMS." title="Send a Message">
+        <aura:set attribute="actions">
+            <lightning:button label="Send" onclick="{! c.sendit }"/>
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+        	<lightning:input name="numberphone" required="true" value="{!v.toPhone}" placeholder="write the number (Not forget your country code)" label="Number Phone" />
+            <lightning:textarea name="bodysms" required="true" value="{!v.toBody}" label="Write your message " placeholder="Type here..."/>
+        </p>
+    </lightning:card>
+    
+</aura:component>	
